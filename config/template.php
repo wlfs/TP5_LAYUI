@@ -18,6 +18,7 @@ return [
     'type'         => 'Think',
     // 模板路径
     'view_path'    => '',
+    'taglib_build_in'=>'',
     // 模板后缀
     'view_suffix'  => 'html',
     // 模板文件名分隔符
