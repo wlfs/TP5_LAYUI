@@ -1,17 +1,17 @@
 <?php
 /**
- * AdminRepository.php
+ * MenuBll.php
  * @author wang lin <lin_wang@loongjoy.com>
  * @copyright Copyright (c) 2018 Loonjoy (http://www.loongjoy.com)
  * @version   v1.0.0
  */
 
-namespace app\admin\repositorys\system;
+namespace app\admin\logic\system;
 
 
-use app\admin\repositorys\BaseRepository;
+use app\admin\logic\BaseLogic;
 
-class AdminRepository extends BaseRepository
+class MenuLogic extends BaseLogic
 {
 
 }

@@ -24,6 +24,13 @@ Route::group('admin', function () {
             //图片验证码
             Route::get('captcha', 'admin/system.common/captcha');
         });
+        //管理员管理
+        Route::group('admin', function () {
+            Route::rule('create', 'admin/system.admin/create');
+            Route::rule('edit/:id', 'admin/system.admin/edit');
+            Route::rule('del/:id', 'admin/system.admin/del');
+            Route::rule('', 'admin/system.admin/index');
+        });
     });
     //登录路由
     Route::rule('/', 'admin/system.index/index');

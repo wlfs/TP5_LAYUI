@@ -6,7 +6,7 @@
  * @version   v1.0.0
  */
 
-namespace app;
+namespace app\common;
 
 
 class Output
@@ -14,7 +14,7 @@ class Output
     public $code;
     public $data = [];
     public $msg;
-
+    const SUCCESS=0;
     public function error($msg = '失败',$code = -1,  $data = [])
     {
         $this->code = $code;
@@ -25,7 +25,7 @@ class Output
 
     public function success($msg = '成功', $data = [])
     {
-        $this->code = 0;
+        $this->code = static::SUCCESS;
         $this->msg = $msg;
         $this->data = $data;
         return $this;

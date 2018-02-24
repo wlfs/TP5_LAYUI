@@ -6,7 +6,7 @@
  * @version   v1.0.0
  */
 
-namespace app;
+namespace app\common;
 
 
 use think\template\TagLib;
@@ -20,7 +20,7 @@ class LocalTags extends TagLib
 
     public function tagAuth($tag,$content){
         $val=$tag['code'];
-        $html="<?php if(\\app\\facade\\Auth::check('$val')){?>";
+        $html="<?php if(\\app\\common\\facade\\Auth::check('$val')){?>";
         $html.=$content;
         $html.='<?php } ?>';
         return $html;

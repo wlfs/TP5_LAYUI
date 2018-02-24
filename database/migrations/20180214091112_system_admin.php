@@ -20,9 +20,9 @@ class SystemAdmin extends Migrator
         $table->string('last_login_address','最后登录地址',50);
         $table->integer('error_count','异常次数');
         $table->string('memo','备注');
-        $table->tinyint('status','备注',1);
+        $table->tinyint('status','状态',1);
         $table->integer('created','创建时间');
-        $table->integer('skin','皮肤');
+        $table->string('skin','皮肤');
         $table->setEngine('MyISAM');
         $table->setComment('系统管理员表');
         $table->save();

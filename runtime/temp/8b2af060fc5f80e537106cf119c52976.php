@@ -1,10 +1,11 @@
+<?php /*a:2:{s:69:"D:\Work\Products\tp5.1\application/admin/view\system\admin\index.html";i:1519462134;s:63:"D:\Work\Products\tp5.1\application/admin/view\_layout\base.html";i:1519461275;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>layout 后台大布局 - Layui</title>
-    <link rel="stylesheet" href="__STATIC__/layui/css/layui.css">
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
     <style type="text/css">
         .layui-table a{
             color:#009688;
@@ -81,7 +82,48 @@
 
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <div style="padding: 15px;">{block name="body"}{/block}</div>
+        <div style="padding: 15px;">
+<table class="layui-table" lay-size="sm">
+
+    <thead>
+    <tr>
+        <th>管理员名称</th>
+        <th>账号</th>
+        <th>手机</th>
+        <th width="160">注册时间</th>
+        <th width="160">最后登录时间</th>
+        <th>描述</th>
+        <th>是否启用</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
+    <tr>
+        <td><?php echo htmlentities($item->name); ?></td>
+        <td><?php echo htmlentities($item->login_name); ?></td>
+        <td><?php echo htmlentities($item->mobile); ?></td>
+        <td><?php echo htmlentities($item->created); ?></td>
+        <td><?php echo htmlentities($item->last_login_time); ?></td>
+        <td><?php echo htmlentities($item->memo); ?></td>
+        <th><?php echo htmlentities($item->status_text); ?></th>
+        <th>
+            <?php if(\app\common\facade\Auth::check('admin/system.admin/edit')){?>
+            <a class="layui-btn-xs" title="修改" href="/admin/system/admin/edit/<?php echo htmlentities($item->id); ?>">
+                <i class="layui-icon">&#xe642;</i>
+            </a>
+            <?php } if(\app\common\facade\Auth::check('admin/system.admin/del')){?>
+            <a _href="/admin/system/admin/del/<?php echo htmlentities($item->id); ?>" class="layui-btn-xs red delete_action" title="删除" href="javascript:void(0);">
+                <i class="layui-icon">&#xe640;</i>
+            </a>
+            <?php } ?>
+        </th>
+    </tr>
+    <?php endforeach; endif; else: echo "" ;endif; ?>
+    </tbody>
+</table>
+
+</div>
     </div>
 
     <div class="layui-footer">
@@ -89,7 +131,7 @@
         © layui.com - 底部固定区域
     </div>
 </div>
-<script src="__STATIC__/layui/layui.js"></script>
+<script src="/static/layui/layui.js"></script>
 <script>
     //JavaScript代码区域
     layui.use('element', function(){
@@ -120,6 +162,6 @@
     });
 
 </script>
-{block name="js"}{/block}
+
 </body>
 </html>

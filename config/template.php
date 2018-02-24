@@ -18,7 +18,7 @@ return [
     'type'         => 'Think',
     // 模板路径
     'view_path'    => '',
-    'taglib_build_in'=>'',
+    'taglib_build_in'=>'Cx,app\\common\\LocalTags',
     // 模板后缀
     'view_suffix'  => 'html',
     // 模板文件名分隔符
@@ -33,6 +33,7 @@ return [
     'taglib_end'   => '}',
     'tpl_replace_string'  =>  [
         '__STATIC__'=>'/static',
+        '__ROOT__'=>'',
         '__JS__' => '/static/javascript',
         '__CSS__' => '/static/css',
         '__IMG__' => '/static/img',

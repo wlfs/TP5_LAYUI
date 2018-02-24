@@ -1,0 +1,44 @@
+{extend name="_layout:base" /}
+{block name="body"}
+<table class="layui-table" lay-size="sm">
+
+    <thead>
+    <tr>
+        <th>管理员名称</th>
+        <th>账号</th>
+        <th>手机</th>
+        <th width="160">注册时间</th>
+        <th width="160">最后登录时间</th>
+        <th>描述</th>
+        <th>是否启用</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {volist name='data' id='item'}
+    <tr>
+        <td>{$item->name}</td>
+        <td>{$item->login_name}</td>
+        <td>{$item->mobile}</td>
+        <td>{$item->created}</td>
+        <td>{$item->last_login_time}</td>
+        <td>{$item->memo}</td>
+        <th>{$item->status_text}</th>
+        <th>
+            {auth code='admin/system.admin/edit'}
+            <a class="layui-btn-xs" title="修改" href="__ROOT__/admin/system/admin/edit/{$item->id}">
+                <i class="layui-icon">&#xe642;</i>
+            </a>
+            {/auth}
+            {auth code='admin/system.admin/del'}
+            <a _href="__ROOT__/admin/system/admin/del/{$item->id}" class="layui-btn-xs red delete_action" title="删除" href="javascript:void(0);">
+                <i class="layui-icon">&#xe640;</i>
+            </a>
+            {/auth}
+        </th>
+    </tr>
+    {/volist}
+    </tbody>
+</table>
+
+{/block}

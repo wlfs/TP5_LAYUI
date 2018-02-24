@@ -8,6 +8,8 @@
 
 namespace app\admin\controller\system;
 
+use app\admin\logic\system\AdminLogic;
+use app\facade\Auth;
 use app\facade\Output;
 use think\captcha\Captcha;
 use think\Request;
@@ -27,7 +29,16 @@ class Common {
         if(!captcha_check($captcha)){
             return Output::error('验证码错误',-1)->toJson();
         };
-        return Output::success('验证码错误',1)->toJson();
+        $uname=$request->post('username');
+        $pass=$request->post('password');
+        $bll=new AdminLogic();
+        $result=$bll->login($uname,md5($pass));
+        if($result->code==0){
+            Auth::saveUserInfo($result->data);
+            Auth::saveCodes($bll->getUserActions($result->data->id));
+            $result->data=[];
+        }
+        return $result->toJson();
 	}
 
 	//退出登录
