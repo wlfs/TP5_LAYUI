@@ -8,20 +8,17 @@
 
 namespace app\admin\controller;
 
-
 use app\common\facade\Auth;
 use think\Controller;
-use think\facade\Config;
 
-class Base extends Controller
-{
-    protected function initialize()
-    {
-        $request=request();
-        $code= $request->module().'/'.$request->controller().'/'.$request->action();
-        if(!Auth::check($code)){
-            $this->redirect('admin_login');
-        }
-    }
+class Base extends Controller {
+	protected function initialize() {
+		$request = request();
+		$code = $request->module() . '/' . $request->controller() . '/' . $request->action();
+		die($code);
+		if (!Auth::check($code)) {
+			$this->redirect('admin_login');
+		}
+	}
 
 }
