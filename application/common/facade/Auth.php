@@ -9,6 +9,12 @@
 namespace app\common\facade;
 
 use think\Facade;
+
+/**
+ * @see \app\common\Auth
+ * Class Auth
+ * @package app\common\facade
+ */
 class Auth extends Facade
 {
     protected static function getFacadeClass()

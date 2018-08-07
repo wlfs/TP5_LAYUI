@@ -10,10 +10,11 @@ namespace app\admin\model\system;
 
 
 use think\Model;
+use think\model\concern\SoftDelete;
 
 class Action extends Model
 {
+    use SoftDelete;
     protected $table='system_actions';
-
 
 }

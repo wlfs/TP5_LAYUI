@@ -10,7 +10,7 @@
 <body>
 
 <div class="loginBox">
-    <form class="layui-form" name="login" action="{:url('admin_login')}">
+    <form class="layui-form" name="login" action="{:url('@admin/system/common/login')}">
         <input type="hidden" name="jurl" value="http://erp.ey.cn/admin">
         <div class="login-input-group">
             <h3 class="login-title">九亿云管理系统</h3>
@@ -55,7 +55,7 @@
                         time: 2000
                     });
                     if (data.code == 0) {
-                        location.href = "{:url('/admin/')}";
+                        location.href = "{:url('/admin')}";
                     } else {
                         $('#code').click();
                     }

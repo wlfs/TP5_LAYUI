@@ -12,24 +12,26 @@ Route::group('admin', function () {
     Route::group('system', function () {
         //定义首页
         Route::group('index', function () {
-            Route::rule('index', 'admin/system.index/index');
+            Route::get('index', 'admin/system.index/index');
         });
         Route::group('common', function () {
             //登录
-            Route::name('admin_login')->get('login', 'admin/system.common/login');
+            Route::get('login', 'admin/system.common/login');
             //登录
             Route::post('login','admin/system.common/loging');
             //退出登录
-            Route::name('admin_logout')->rule('logout', 'admin/system.common/logout');
+            Route::get('logout', 'admin/system.common/logout');
             //图片验证码
             Route::get('captcha', 'admin/system.common/captcha');
+            //没有权限
+            Route::get('login', 'admin/system.common/noPermission');
         });
         //管理员管理
         Route::group('admin', function () {
-            Route::rule('create', 'admin/system.admin/create');
-            Route::rule('edit/:id', 'admin/system.admin/edit');
-            Route::rule('del/:id', 'admin/system.admin/del');
-            Route::rule('', 'admin/system.admin/index');
+            Route::get('create', 'admin/system.admin/create');
+            Route::get('edit/:id', 'admin/system.admin/edit');
+            Route::post('del/:id', 'admin/system.admin/del');
+            Route::get('/', 'admin/system.admin/index');
         });
     });
     //登录路由

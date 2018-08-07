@@ -13,11 +13,15 @@ use think\Controller;
 
 class Base extends Controller {
 	protected function initialize() {
+	    if(!Auth::getUserId()){
+            $this->redirect('/admin/system/common/login');
+        }
 		$request = request();
 		$code = $request->module() . '/' . $request->controller() . '/' . $request->action();
 		die($code);
 		if (!Auth::check($code)) {
-			$this->redirect('admin_login');
+		    //没有权限
+            $this->redirect( 'admin/system.common/noPermission');
 		}
 	}
 

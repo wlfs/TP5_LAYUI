@@ -1,6 +1,6 @@
 <?php
 
-include "../application/admin/config/route.php";
+include APP_PATH."/admin/config/route.php";
 return [
 
 ];

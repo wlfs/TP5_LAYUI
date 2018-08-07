@@ -1,0 +1,143 @@
+.loginBox {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 170px;
+    width: 376px
+}
+
+.loginBox .login-input-group {
+    width: 218px;
+    margin: auto auto 12px;
+    position: relative
+}
+
+.loginBox .login-input-group:before {
+    content: ' ';
+    display: table
+}
+
+.loginBox .login-input-group:after {
+    content: ' ';
+    display: table;
+    clear: both
+}
+
+.loginBox .login-input-group .login-input {
+    outline: 0;
+    width: 218px;
+    height: 36px;
+    border: 1px solid #d5d5d5;
+    border-radius: 2px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    position: relative;
+    padding: 0 10px 0 45px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #666
+}
+
+.loginBox .login-input-group .login-input:focus {
+    border: 1px solid #009688;
+    -webkit-box-shadow: 0 0 3px #009688;
+    box-shadow: 0 0 3px #009688
+}
+
+.loginBox .login-input-group .login-input:focus+.login-input-icon {
+    background: #f7f7f7;
+    background-repeat: no-repeat;
+    background-position: center
+}
+
+.loginBox .login-input-group .login-input:focus+.login-input-icon:after {
+    background: #f7f7f7
+}
+
+.loginBox .login-input-group .login-input:focus+.login-input-icon.user {
+    background-image: url(../images/login_user_hig.png)
+}
+
+.loginBox .login-input-group .login-input:focus+.login-input-icon.password {
+    background-image: url(../images/login_shape_hig.png)
+}
+
+.loginBox .login-input-group .login-input-icon {
+    display: block;
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    width: 31px;
+    height: 34px;
+    border-radius: 2px 0 0 2px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    background: #fff;
+    -webkit-filter: drop-shadow(1px 0 0 #d5d5d5);
+    filter: drop-shadow(1px 0 0 #d5d5d5);
+    background-repeat: no-repeat;
+    background-position: center
+}
+
+.loginBox .login-input-group .login-input-icon:after {
+    content: ' ';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    right: -5px;
+    top: 12px;
+    background: #fff;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+
+.loginBox .login-input-group .login-input-icon.user {
+    background-image: url(../images/login_user_nor.png)
+}
+
+.loginBox .login-input-group .login-input-icon.password {
+    background-image: url(../images/login_shape_nor.png)
+}
+
+.loginBox .login-input-group .login-input.code {
+    width: 116px;
+    float: left;
+    padding: 0 10px
+}
+
+.loginBox .login-input-group .login-code {
+    width: 96px;
+    height: 36px;
+    overflow: hidden;
+    float: right;
+    background: #f5f5f5
+}
+
+.loginBox .login-input-group .login-btn {
+    display: block;
+    width: 218px;
+    height: 36px;
+    line-height: 36px;
+    color: #fff;
+    font-size: 16px;
+    background: #009688;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    -webkit-transition: background .3s;
+    transition: background .3s
+}
+
+.loginBox .login-input-group .login-btn:hover {
+    background: #009688
+}
+
+.loginBox .login-title {
+    font-size: 18px;
+    color: #000;
+    margin: 0;
+    text-align: center;
+    padding-bottom: 4px
+}

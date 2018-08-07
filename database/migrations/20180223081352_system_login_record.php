@@ -8,11 +8,11 @@ class SystemLoginRecord extends Migrator
 
     public function change()
     {
-        $table = $this->table('system_login_record');
-        $table->integer('created','创建时间');
-        $table->integer('admin_id','管理员编号');
-        $table->string('ip','管理员编号',20);
-        $table->string('ip_address','ip地址');
+        $table = $this->table('system__login_record');
+        $table->addColumn(Column::unsignedInteger('admin_id')->setComment('管理员编号'));
+        $table->addColumn(Column::string('ip')->setComment('登录IP'));
+        $table->addColumn(Column::string('ip_address')->setComment('ip地址'));
+        $table->addTimestamps();
         $table->setEngine('MyISAM');
         $table->setComment('登录记录');
         $table->save();

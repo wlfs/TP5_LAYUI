@@ -8,13 +8,11 @@ class SystemGroup extends Migrator
 
     public function change()
     {
-        $table = $this->table('system_groups');
-        $table->increments();//主键
-        $table->string('name','分组名称');
-        $table->tinyint('is_sys','是否系统组');
-        $table->integer('type','分类');
-        $table->string('intro','描述',32);
-        $table->integer('user_id','用户编号');
+        $table = $this->table('system__groups');
+        $table->addColumn(Column::string('name')->setComment('分组名称'));
+        $table->addColumn(Column::string('code')->setComment('分组编码'));
+        $table->addColumn(Column::string('intro')->setComment('描述'));
+        $table->addTimestamps();
         $table->setEngine('MyISAM');
         $table->setComment('系统菜单表');
         $table->save();

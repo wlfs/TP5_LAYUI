@@ -9,8 +9,8 @@
 namespace app\admin\controller\system;
 
 use app\admin\logic\system\AdminLogic;
-use app\facade\Auth;
-use app\facade\Output;
+use app\common\facade\Auth;
+use app\common\facade\Output;
 use think\captcha\Captcha;
 use think\Request;
 
@@ -43,7 +43,7 @@ class Common {
 
 	//退出登录
 	public function logout() {
-		return redirect('admin_login');
+		return redirect('/admin/system/common/login');
 	}
 
 	//验证码
@@ -56,6 +56,7 @@ class Common {
 			'fontSize' => 14,
 			'useImgBg' => false,
 			'bg' => [243, 243, 243],
+            'length'=>4,
 			// 关闭验证码杂点
 			'useNoise' => false,
 		];
